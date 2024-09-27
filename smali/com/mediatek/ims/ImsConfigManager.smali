@@ -129,7 +129,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;[Lcom/mediatek/ims/ril/ImsCommandsInterface;)V
-    .locals 3
+    .locals 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "imsRILAdapters"    # [Lcom/mediatek/ims/ril/ImsCommandsInterface;
 
@@ -201,13 +201,15 @@
 
     invoke-virtual {v1, v2}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
+    const/4 v3, 0x2
+
     .line 154
     const-string v2, "com.mediatek.ims.config.action.CONFIG_LOADED"
 
     invoke-virtual {v1, v2}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
     .line 155
-    invoke-virtual {p1, v0, v1}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
+    invoke-virtual {p1, v0, v1, v3}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
     .line 157
     return-void
